@@ -205,17 +205,3 @@ jobs:
           command: build
           toolchain: ${{ matrix.rust }}
           args: --locked --release --target ${{ matrix.target }} --no-default-features --features "${{ matrix.feature }},${{ matrix.audio_backend }}"
-      - name: Packaging final binary
-        shell: bash
-        run: |
-          cd target/${{ matrix.target }}/release
-          tar czvf spotifyd-${{ matrix.artifact_prefix }}-${{ matrix.artifact_type }}.tar.gz spotifyd
-          shasum -a 512 spotifyd-${{ matrix.artifact_prefix }}-${{ matrix.artifact_type }}.tar.gz > spotifyd-${{ matrix.artifact_prefix }}-${{ matrix.artifact_type }}.sha512
-      - name: Releasing assets
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            target/${{ matrix.target }}/release/spotifyd-${{ matrix.artifact_prefix }}-${{ matrix.artifact_type }}.tar.gz
-            target/${{ matrix.target }}/release/spotifyd-${{ matrix.artifact_prefix }}-${{ matrix.artifact_type }}.sha512
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
