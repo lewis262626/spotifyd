@@ -11,7 +11,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        build_target: [macos, linux, linux-armhf, linux-armv6, linux-aarch64]
+        #        build_target: [macos, linux, linux-armhf, linux-armv6, linux-aarch64]
+        build_target: [linux, linux-aarch64]
         rust: [stable]
         artifact_type: ['slim', 'default', 'full']  # The build strategy will build all types for each OS specified
         include:
