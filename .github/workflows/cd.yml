@@ -65,7 +65,7 @@ jobs:
             audio_backend: alsa_backend
           - build_target: linux-aarch64
             artifact_type: default
-            audio_backend: alse_backend
+            audio_backend: alsa_backend
           - build_target: linux
             artifact_type: full
             audio_backend: pulseaudio_backend,alsa_backend,rodio_backend
