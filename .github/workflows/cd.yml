@@ -106,10 +106,10 @@ jobs:
           echo "deb [arch=armhf] http://ports.ubuntu.com/ubuntu-ports/ jammy main" | sudo tee -a /etc/apt/sources.list
           sudo apt-get update
           sudo apt-get install -y -qq gcc-arm-linux-gnueabihf libc6-armhf-cross libc6-dev-armhf-cross
-          sudo apt-get download libasound2:armhf libasound2-dev:armhf libssl-dev:armhf libssl1.1:armhf
+          sudo apt-get download libasound2:armhf libasound2-dev:armhf libssl-dev:armhf libssl3:armhf
           sudo dpkg -x libasound2_*.deb /build/sysroot/
           sudo dpkg -x libssl-dev*.deb /build/sysroot/
-          sudo dpkg -x libssl1.1*.deb /build/sysroot/
+          sudo dpkg -x libssl3*.deb /build/sysroot/
           sudo dpkg -x libasound2-dev*.deb /build/sysroot/
           echo "PKG_CONFIG_ALLOW_CROSS=1" >> $GITHUB_ENV
           echo "TEST=abc" >> $GITHUB_ENV
@@ -125,10 +125,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y -qq git
           sudo git -C /build clone --depth=1 https://github.com/raspberrypi/tools.git
-          sudo apt-get download libasound2:armhf libasound2-dev:armhf libssl-dev:armhf libssl1.1:armhf
+          sudo apt-get download libasound2:armhf libasound2-dev:armhf libssl-dev:armhf libssl3:armhf
           sudo dpkg -x libasound2_*.deb /build/sysroot/
           sudo dpkg -x libssl-dev*.deb /build/sysroot/
-          sudo dpkg -x libssl1.1*.deb /build/sysroot/
+          sudo dpkg -x libssl3*.deb /build/sysroot/
           sudo dpkg -x libasound2-dev*.deb /build/sysroot/
           echo "/build/tools/arm-bcm2708/arm-linux-gnueabihf/bin" >> $GITHUB_PATH
           echo "PKG_CONFIG_ALLOW_CROSS=1" >> $GITHUB_ENV
@@ -165,10 +165,10 @@ jobs:
           echo "deb [arch=arm64] http://ports.ubuntu.com/ubuntu-ports/ jammy main" | sudo tee -a /etc/apt/sources.list
           sudo apt-get update
           sudo apt-get install -y -qq gcc-arm-linux-gnueabihf libc6-arm64-cross libc6-dev-arm64-cross
-          sudo apt-get download libasound2:arm64 libasound2-dev:arm64 libssl-dev:arm64 libssl1.1:arm64
+          sudo apt-get download libasound2:arm64 libasound2-dev:arm64 libssl-dev:arm64 libssl3:arm64
           sudo dpkg -x libasound2_*.deb /build/sysroot/
           sudo dpkg -x libssl-dev*.deb /build/sysroot/
-          sudo dpkg -x libssl1.1*.deb /build/sysroot/
+          sudo dpkg -x libssl3*.deb /build/sysroot/
           sudo dpkg -x libasound2-dev*.deb /build/sysroot/
           echo "PKG_CONFIG_ALLOW_CROSS=1" >> $GITHUB_ENV
           echo "TEST=abc" >> $GITHUB_ENV
