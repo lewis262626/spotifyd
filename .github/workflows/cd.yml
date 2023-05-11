@@ -172,7 +172,7 @@ jobs:
           sudo dpkg -x libasound2-dev*.deb /build/sysroot/
           echo "PKG_CONFIG_ALLOW_CROSS=1" >> $GITHUB_ENV
           echo "TEST=abc" >> $GITHUB_ENV
-          echo "RUSTFLAGS=-C linker=aarch64-linux-gnu-gcc -L/usr/aarch64-linux-gnu/lib -L/build/sysroot/usr/lib/arm64-linux-gnu -L/build/sysroot/lib/aarch64-linux-gnu" >> $GITHUB_ENV
+          echo "RUSTFLAGS=-C linker=aarch64-linux-gnu-gcc link-args=-fstack-protector-all -lssp -L/usr/aarch64-linux-gnu/lib -L/build/sysroot/usr/lib/arm64-linux-gnu -L/build/sysroot/lib/aarch64-linux-gnu" >> $GITHUB_ENV
           echo "C_INCLUDE_PATH=/build/sysroot/usr/include" >> $GITHUB_ENV
           echo "OPENSSL_LIB_DIR=/build/sysroot/usr/lib/aarch64-linux-gnu" >> $GITHUB_ENV
           echo "OPENSSL_INCLUDE_DIR=/build/sysroot/usr/include/aarch64-linux-gnu" >> $GITHUB_ENV
